@@ -1,7 +1,7 @@
 /* ============================================
    NEWDAY FILM — Global Styles
-   Aesthetic: pricing.html 톤 기반
-   배경 베이지, Cormorant Garamond, 웜 브라운 계열
+   Aesthetic: Cormorant Garamond / Noto Sans KR
+   Palette: warm beige #f7f5f2, brown accent #8b7355
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+KR:wght@300;400&display=swap');
@@ -18,16 +18,12 @@
   --font-display: 'Cormorant Garamond', serif;
   --font-body:    'Noto Sans KR', sans-serif;
 
-  --nav-height: 72px;
+  --nav-height: 68px;
   --max-width:  1200px;
   --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
@@ -41,22 +37,15 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-/* ── Navigation ── */
+/* ============================================
+   NAVIGATION
+   ============================================ */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: var(--nav-height);
   z-index: 1000;
   display: flex;
@@ -67,13 +56,15 @@ img {
   border-bottom: 1px solid var(--color-border);
 }
 
+/* 로고: Cormorant Garamond, 얇고 넓은 자간 */
 .nav__logo {
   font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.35em;
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--color-text);
+  line-height: 1;
 }
 
 .nav__logo span {
@@ -82,14 +73,15 @@ img {
 
 .nav__links {
   display: flex;
-  gap: 48px;
+  gap: 44px;
   list-style: none;
 }
 
 .nav__links a {
-  font-size: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-muted);
   transition: color var(--transition);
@@ -99,24 +91,19 @@ img {
 .nav__links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
   background: var(--color-accent);
   transition: width var(--transition);
 }
 
 .nav__links a:hover,
-.nav__links a.active {
-  color: var(--color-accent);
-}
+.nav__links a.active { color: var(--color-accent); }
 
 .nav__links a:hover::after,
-.nav__links a.active::after {
-  width: 100%;
-}
+.nav__links a.active::after { width: 100%; }
 
+/* Hamburger */
 .nav__hamburger {
   display: none;
   flex-direction: column;
@@ -127,11 +114,11 @@ img {
 
 .nav__hamburger span {
   display: block;
-  width: 22px;
-  height: 1px;
+  width: 22px; height: 1px;
   background: var(--color-accent);
 }
 
+/* Mobile menu */
 .nav__mobile {
   display: none;
   position: fixed;
@@ -141,46 +128,47 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 44px;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition);
 }
 
-.nav__mobile.open {
-  opacity: 1;
-  pointer-events: all;
-}
+.nav__mobile.open { opacity: 1; pointer-events: all; }
 
 .nav__mobile a {
   font-family: var(--font-display);
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 300;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--color-text);
   transition: color var(--transition);
 }
 
-.nav__mobile a:hover {
-  color: var(--color-accent);
-}
+.nav__mobile a:hover { color: var(--color-accent); }
 
 .nav__mobile-close {
   position: absolute;
-  top: 28px;
-  right: 40px;
-  font-size: 1.2rem;
+  top: 28px; right: 36px;
+  font-size: 1.1rem;
   cursor: pointer;
   color: var(--color-muted);
+  transition: color var(--transition);
 }
 
-/* ── Page Wrapper ── */
+.nav__mobile-close:hover { color: var(--color-accent); }
+
+/* ============================================
+   PAGE WRAPPER
+   ============================================ */
 .page-wrapper {
   padding-top: var(--nav-height);
   min-height: 100vh;
 }
 
-/* ── Footer ── */
+/* ============================================
+   FOOTER
+   ============================================ */
 .footer {
   border-top: 1px solid var(--color-border);
   padding: 48px 60px;
@@ -188,35 +176,46 @@ img {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
 }
 
 .footer__brand {
   font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: 0.25em;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .footer__copy {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--color-muted);
   letter-spacing: 0.08em;
 }
 
-/* ── Animations ── */
+/* ============================================
+   ANIMATIONS
+   ============================================ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Responsive ── */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
-  .nav { padding: 0 24px; }
+  .nav { padding: 0 20px; }
+  .nav__logo { font-size: 1rem; letter-spacing: 0.3em; }
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
   .nav__mobile { display: flex; }
-  .footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+
+  .footer {
+    padding: 36px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — NEWDAY FILM</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Hero ── */
+    .pricing-hero {
+      padding: 88px 60px 52px;
+      border-bottom: 1px solid var(--color-border);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .pricing-hero__label {
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 18px;
+    }
+
+    .pricing-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.0;
+    }
+
+    /* ── Page body ── */
+    .pricing-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 60px 120px;
+    }
+
+    /* ── Section ── */
+    .p-section {
+      margin-bottom: 80px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .p-section:nth-child(1) { animation-delay: 0.05s; }
+    .p-section:nth-child(2) { animation-delay: 0.12s; }
+    .p-section:nth-child(3) { animation-delay: 0.19s; }
+    .p-section:nth-child(4) { animation-delay: 0.26s; }
+
+    /* ── Section Title ── */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 300;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* ── Table ── */
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .price-table thead tr {
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .price-table th {
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      font-weight: 400;
+      padding: 13px 16px;
+      text-align: left;
+    }
+
+    .price-table th:last-child,
+    .price-table td:last-child { text-align: right; }
+
+    .price-table tbody tr {
+      border-bottom: 1px solid var(--color-border);
+      transition: background 0.2s;
+    }
+
+    .price-table tbody tr:hover { background: rgba(139,115,85,0.04); }
+
+    .price-table td {
+      padding: 26px 16px;
+      font-size: 0.82rem;
+      vertical-align: top;
+    }
+
+    .row-name {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      font-weight: 400;
+    }
+
+    .row-camera {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+    }
+
+    .row-process, .row-includes {
+      font-size: 0.8rem;
+      color: var(--color-text);
+      line-height: 2;
+    }
+
+    .row-price {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      white-space: nowrap;
+      color: var(--color-text);
+    }
+
+    /* ── Notes ── */
+    .notes {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .notes li {
+      font-size: 0.74rem;
+      color: var(--color-muted);
+      line-height: 1.9;
+      list-style: none;
+      padding-left: 14px;
+      position: relative;
+      word-break: keep-all;
+    }
+
+    .notes li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
+    /* ── Divider ── */
+    .p-divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 72px 0;
+    }
+
+    /* ── Option Grid ── */
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--color-border);
+    }
+
+    .option-item {
+      padding: 28px 24px;
+      border-right: 1px solid var(--color-border);
+      transition: background 0.2s;
+    }
+
+    .option-item:last-child { border-right: none; }
+
+    .option-item:nth-child(4),
+    .option-item:nth-child(5),
+    .option-item:nth-child(6) { border-top: 1px solid var(--color-border); }
+
+    .option-item:hover { background: rgba(139,115,85,0.04); }
+
+    .option-name {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 10px;
+    }
+
+    .option-price {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 300;
+      color: var(--color-text);
+    }
+
+    .option-note {
+      font-size: 0.68rem;
+      color: var(--color-muted);
+      margin-top: 6px;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    /* ── Footer Note ── */
+    .pricing-note {
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .pricing-note p {
+      font-size: 0.72rem;
+      color: var(--color-muted);
+      line-height: 2;
+    }
+
+    .pricing-note .vat {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+    }
+
+    /* ============================================
+       MOBILE OVERRIDES
+       ============================================ */
+    @media (max-width: 768px) {
+      .pricing-hero { padding: 72px 20px 40px; }
+      .pricing-page { padding: 52px 20px 100px; }
+
+      /* 헤더 컬럼 숨기기 (카메라/진행/구성) — 핵심만 남김 */
+      .price-table th:nth-child(2),
+      .price-table th:nth-child(3),
+      .price-table td:nth-child(2),
+      .price-table td:nth-child(3) { display: none; }
+
+      /* 구성 컬럼만 남기기 (4번째 = 구성) */
+      .price-table th,
+      .price-table td { padding: 18px 12px; }
+
+      /* 금액 폰트 축소 */
+      .row-price { font-size: 1.25rem; }
+
+      /* 패키지 테이블: 진행 컬럼 숨기기 */
+      .price-table.pkg th:nth-child(2),
+      .price-table.pkg td:nth-child(2) { display: none; }
+
+      /* 노트 줄 간격 */
+      .notes li { font-size: 0.7rem; line-height: 1.8; }
+
+      /* 옵션 그리드: 2열 */
+      .option-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .option-item:nth-child(2) { border-right: none; }
+      .option-item:nth-child(3),
+      .option-item:nth-child(4) { border-top: 1px solid var(--color-border); }
+      .option-item:nth-child(3) { border-right: 1px solid var(--color-border); }
+      .option-item:nth-child(4) { border-right: none; }
+      .option-item:nth-child(5),
+      .option-item:nth-child(6) { border-top: 1px solid var(--color-border); border-right: none; }
+      .option-item:nth-child(5) { border-right: 1px solid var(--color-border); }
+
+      .option-price { font-size: 1.2rem; }
+
+      .p-divider { margin: 48px 0; }
+
+      .section-title { font-size: 1.9rem; margin-bottom: 28px; }
+    }
+
+    @media (max-width: 400px) {
+      .option-grid { grid-template-columns: 1fr 1fr; }
+      .row-name { font-size: 0.56rem; letter-spacing: 0.18em; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">NEWDAY<span>FILM</span></a>
+    <ul class="nav__links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="product.html" class="active">Product</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileMenu">
+    <span class="nav__mobile-close" id="mobileClose">✕</span>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="product.html">Product</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+
+    <section class="pricing-hero">
+      <p class="pricing-hero__label">Packages &amp; Pricing</p>
+      <h1 class="pricing-hero__title">Product</h1>
+    </section>
+
+    <main class="pricing-page">
+
+      <!-- ── WEDDING ── -->
+      <section class="p-section">
+        <h2 class="section-title">Wedding</h2>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th style="width:14%"></th>
+              <th style="width:15%">촬영</th>
+              <th style="width:27%">진행</th>
+              <th style="width:28%">구성</th>
+              <th style="width:16%">금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="row-name">BASIC</span></td>
+              <td><span class="row-camera">1인 2캠</span></td>
+              <td><span class="row-process">식전 (신부대기실부터)<br>본식<br>식후<br>에피소드</span></td>
+              <td><span class="row-includes">Full 영상<br>하이라이트 영상<br>USB 1set</span></td>
+              <td><span class="row-price">1,100,000</span></td>
+            </tr>
+            <tr>
+              <td><span class="row-name">PREMIUM</span></td>
+              <td><span class="row-camera">2인 3캠</span></td>
+              <td><span class="row-process">식전 (신부대기실부터)<br>본식<br>식후<br>에피소드</span></td>
+              <td><span class="row-includes">Full 영상<br>하이라이트 영상<br>USB 1set</span></td>
+              <td><span class="row-price">1,650,000</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="notes">
+          <li>1인 촬영시에도 신부 입장 슬로우 효과 적용 가능합니다.</li>
+          <li>2인 촬영시 신부대기실, 하객맞이를 파트별로 1인씩 전담하여 진행하기에 신랑, 신부님 그리고 부모님 모습을 많이 담을 수 있습니다. 축사, 축가 등 이벤트가 많은 주례 없는 예식 진행시 권장해 드립니다.</li>
+        </ul>
+      </section>
+
+      <hr class="p-divider">
+
+      <!-- ── PREWEDDING ── -->
+      <section class="p-section">
+        <h2 class="section-title">Prewedding</h2>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th style="width:14%"></th>
+              <th style="width:15%">촬영</th>
+              <th style="width:27%">진행</th>
+              <th style="width:28%">구성</th>
+              <th style="width:16%">금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="row-name">PREWEDDING</span></td>
+              <td><span class="row-camera">1인 2캠<br>(2–3시간 촬영기준)</span></td>
+              <td><span class="row-process">스튜디오 및<br>가봉촬영 시 택 1</span></td>
+              <td><span class="row-includes">메이킹필름<br>(식전·식중 영상으로 사용가능)<br>USB 1set</span></td>
+              <td><span class="row-price">660,000</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="p-divider">
+
+      <!-- ── PACKAGE ── -->
+      <section class="p-section">
+        <h2 class="section-title">Package</h2>
+        <table class="price-table pkg">
+          <thead>
+            <tr>
+              <th style="width:14%"></th>
+              <th style="width:40%">진행</th>
+              <th style="width:30%">구성</th>
+              <th style="width:16%">금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="row-name">BASIC</span></td>
+              <td><span class="row-process">Wedding Basic + Prewedding</span></td>
+              <td><span class="row-includes">Prewedding 영상<br>Full 영상<br>하이라이트 영상<br>USB 1set</span></td>
+              <td><span class="row-price">1,650,000</span></td>
+            </tr>
+            <tr>
+              <td><span class="row-name">PREMIUM</span></td>
+              <td><span class="row-process">Wedding Premium + Prewedding</span></td>
+              <td><span class="row-includes">Prewedding 영상<br>Full 영상<br>하이라이트 영상<br>USB 1set</span></td>
+              <td><span class="row-price">2,200,000</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="p-divider">
+
+      <!-- ── OPTION ── -->
+      <section class="p-section">
+        <h2 class="section-title">Option</h2>
+        <div class="option-grid">
+          <div class="option-item">
+            <div class="option-name">대표 지정</div>
+            <div class="option-price">550,000</div>
+            <div class="option-note">프리미엄 상품 선택시 가능</div>
+          </div>
+          <div class="option-item">
+            <div class="option-name">이사 지정</div>
+            <div class="option-price">165,000</div>
+            <div class="option-note">&nbsp;</div>
+          </div>
+          <div class="option-item">
+            <div class="option-name">4K 촬영</div>
+            <div class="option-price">220,000</div>
+            <div class="option-note">&nbsp;</div>
+          </div>
+          <div class="option-item">
+            <div class="option-name">메이크업 추가</div>
+            <div class="option-price">220,000</div>
+            <div class="option-note">&nbsp;</div>
+          </div>
+          <div class="option-item">
+            <div class="option-name">폐백</div>
+            <div class="option-price">220,000</div>
+            <div class="option-note">&nbsp;</div>
+          </div>
+          <div class="option-item">
+            <div class="option-name">드론</div>
+            <div class="option-price">550,000</div>
+            <div class="option-note">&nbsp;</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="pricing-note">
+        <p class="vat">* 위 금액은 모두 VAT 10% 포함 금액입니다.</p>
+        <p>자세한 상담은 카카오톡 또는 전화로 문의해 주세요.</p>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <div>
+        <div class="footer__brand">NEWDAY FILM</div>
+        <div class="footer__copy">© 2024 Newday Film. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('open');
+    });
+    document.getElementById('mobileClose').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+  </script>
+</body>
+</html>
