@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — NEWDAY FILM</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .about-hero {
+      padding: 100px 60px 60px;
+      border-bottom: 1px solid var(--color-border);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .about-hero__label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .about-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.0;
+    }
+
+    /* ── Story ── */
+    .about-story {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 100px 60px;
+      text-align: center;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+
+    .about-story__heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+
+    .about-story__text {
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      line-height: 2.2;
+    }
+
+    /* ── Philosophy ── */
+    .philosophy {
+      border-top: 1px solid var(--color-border);
+      padding: 80px 60px;
+    }
+
+    .philosophy__label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .philosophy__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .philosophy__item {
+      padding: 40px;
+      border: 1px solid var(--color-border);
+      margin: -1px 0 0 -1px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .philosophy__item:nth-child(1) { animation-delay: 0.1s; }
+    .philosophy__item:nth-child(2) { animation-delay: 0.2s; }
+    .philosophy__item:nth-child(3) { animation-delay: 0.3s; }
+    .philosophy__item:nth-child(4) { animation-delay: 0.4s; }
+
+    .philosophy__num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--color-border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .philosophy__text {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero { padding: 80px 24px 40px; }
+      .about-story { padding: 60px 24px; }
+      .philosophy { padding: 60px 24px; }
+      .philosophy__grid { grid-template-columns: 1fr; }
+      .philosophy__item { margin: 0; border-top: none; }
+      .philosophy__item:first-child { border-top: 1px solid var(--color-border); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">NEWDAY<span>FILM</span></a>
+    <ul class="nav__links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="pricing.html">Product</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileMenu">
+    <span class="nav__mobile-close" id="mobileClose">✕</span>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="pricing.html">Product</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+
+    <section class="about-hero">
+      <p class="about-hero__label">Our Story</p>
+      <h1 class="about-hero__title">About</h1>
+    </section>
+
+    <section class="about-story">
+      <h2 class="about-story__heading">"Make it count."</h2>
+      <p class="about-story__text">
+        뉴데이필름은 13년 전 웨딩 업계에 첫 발을 내딛었습니다.<br>
+        13년이 지난 지금도 우리의 목표는 변하지 않았습니다.<br><br>
+        진정한 사랑과 영원한 헌신의 유대를 떠올리게 하는<br>
+        시대를 초월한 우아한 웨딩 영상을 만드는 것.<br><br>
+        그것이 뉴데이필름이 존재하는 이유입니다.
+      </p>
+    </section>
+
+    <section class="philosophy">
+      <p class="philosophy__label">Our Values</p>
+      <div class="philosophy__grid">
+        <div class="philosophy__item">
+          <div class="philosophy__num">01</div>
+          <div class="philosophy__text">순간의 아름다움을<br>영원으로 기록합니다</div>
+        </div>
+        <div class="philosophy__item">
+          <div class="philosophy__num">02</div>
+          <div class="philosophy__text">디테일 하나하나에<br>정성을 담습니다</div>
+        </div>
+        <div class="philosophy__item">
+          <div class="philosophy__num">03</div>
+          <div class="philosophy__text">신뢰를 바탕으로<br>함께 성장합니다</div>
+        </div>
+        <div class="philosophy__item">
+          <div class="philosophy__num">04</div>
+          <div class="philosophy__text">13년의 경험으로<br>최선을 다합니다</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <div class="footer__brand">NEWDAY FILM</div>
+        <div class="footer__copy">© 2024 Newday Film. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('open');
+    });
+    document.getElementById('mobileClose').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+  </script>
+</body>
+</html>
