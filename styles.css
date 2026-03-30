@@ -54,6 +54,8 @@ img { display: block; max-width: 100%; }
   padding: 0 60px;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  margin: 0 auto;
+  width: 1280px;
 }
 
 /* 로고: Cormorant Garamond, 얇고 넓은 자간 */
@@ -164,6 +166,8 @@ img { display: block; max-width: 100%; }
 .page-wrapper {
   padding-top: var(--nav-height);
   min-height: 100vh;
+  margin: 0 auto;
+  width: 1280px;
 }
 
 /* ============================================
